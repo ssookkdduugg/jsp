@@ -38,6 +38,7 @@ public class MakeAccount extends HttpServlet {
 		Integer money = Integer.parseInt(request.getParameter("money"));
 		String type = request.getParameter("type");
 		String grade = request.getParameter("grade");
+		if(grade==null)grade="";
 		
 		/* form입력값 request로 가져왔으면은 account객체 만들어주기 */
 	   Account acc = new Account(id,name,money,type,grade);

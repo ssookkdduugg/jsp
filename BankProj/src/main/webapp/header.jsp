@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    String id = (String)session.getAttribute("id");
+    %>
 <!DOCTYPE html>
 <style>
 * {margin:0 auto;}
@@ -18,11 +21,15 @@ a {text-decoration:none;}
       <a href="main?page=deposit">입금</a>&nbsp;&nbsp;
       <a href="main?page=withdraw">출금</a>&nbsp;&nbsp;
       <a href="main?page=accountinfoform">계좌조회</a>&nbsp;&nbsp;
-      <a href="main?page=allaccountinfo">전체계좌조회</a>&nbsp;&nbsp;
+      <a href="allaccountinfo">전체계좌조회</a>&nbsp;&nbsp;
    </div>
    <div style="float:right; margin-right:10px;">
+   <%if(id==null){ %>
       <a href="#">로그인</a>&nbsp;&nbsp;
-      <a href="#">회원가입</a>&nbsp;&nbsp;
+      <%} else{ %>
+    <%=id %>님 환영합니다.&nbsp;&nbsp;   <a href="Logout">로그아웃</a>&nbsp;&nbsp;
+      <%} %>
+      <a href="main?page=join">회원가입</a> &nbsp;&nbsp;
    </div>
    </div>   
 </div>

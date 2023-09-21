@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="dto.Account" %>
+<%
+	List<Account> accs = (List<Account>)request.getAttribute("accs");
+	
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +67,24 @@
                     <div class="title colume">계좌종류</div>
                     <div class="title colume">등급</div>
                 </div>
+                
+                <%
+                for(int i=0;i<accs.size(); i++){
+                	%>	
+                	<div calss="row">
+                	<div class="colume"><%=i+1 %></div>
+                    <div class="colume"><%=accs.get(i).getId() %></div>
+                    <div class="colume"><%= accs.get(i).getName() %></div>
+                    <div class="colume"><%= accs.get(i).getBalance() %></div>
+                    <div class="colume"><%= accs.get(i).getType() %></div>
+                    <div class="colume"><%= accs.get(i).getGrade() %></div>
+                	</div>
+                	
+                	<%
+                		}
+                	%>
+                
+                
             </div>
         </form>
     </center>
